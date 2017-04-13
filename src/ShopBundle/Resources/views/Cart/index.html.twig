@@ -12,7 +12,36 @@
                 <h1>Panier</h1>
             </div>
 
-            {# TODO #}
+            <div>
+            {% if items|length == 0 %}
+                <p>Votre panier est vide</p>
+            {% else %}
+                <ul>
+                {% for i in items %}
+                    <li>
+                        <p>
+                            <a href="{{ path('shop_catalog_product', {'categorySlug': i.product.category.slug, 'productSlug': i.product.slug}) }}">
+                                {{i.product.title}}
+                            </a>
+                            -
+                            <span>
+                                {{ i.quantity }} x {{ i.product.price }}
+                                =
+                                {{ i.quantity * i.product.price}} euros
+                            </span>
+
+                            <a href="{{ path('shop_cart_increment', {'productId':i.product.id}) }}">+</a>
+
+                            <a href="{{ path('shop_cart_decrement', {'productId':i.product.id}) }}">-</a>
+
+                            <a href="{{ path('shop_cart_remove', {'productId':i.product.id}) }}">retirer</a>
+                        </p>
+
+                    </li>
+                {% endfor %}
+                </ul>
+            {% endif %}
+            </div>
         </div>
     </div>
 </div>

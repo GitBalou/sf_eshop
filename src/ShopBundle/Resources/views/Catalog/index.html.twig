@@ -12,7 +12,17 @@
                     <h1>Catalogue</h1>
                 </div>
 
-                {# TODO #}
+                <div>
+                    {% for c in categories %}
+
+                        <div>
+                            <h2>{{ c.title }}</h2>
+                            <p>{{ c.description }}</p>
+                            <p><a href="{{ path('shop_catalog_category', {'categorySlug': c.slug}) }}">Détail</a></p>
+                        </div>
+                    {% endfor %}
+
+                </div>
             </div>
         </div>
     </div>

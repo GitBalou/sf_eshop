@@ -20,3 +20,13 @@ services:
         arguments: ['@router']
         tags:
             - { name: twig.extension }
+
+    shop.repository.product:
+        class: ShopBundle\Repository\ProductRepository
+        factory: ['@doctrine.orm.default_entity_manager', getRepository]
+        arguments: [ShopBundle\Entity\Product]
+
+    shop.cart.provider:
+        class: ShopBundle\Service\Cart\CartProvider
+        arguments: ['@session', '@shop.repository.product']
+

@@ -1,0 +1,22 @@
+ShopBundle\Entity\Product:
+    properties:
+        title:
+            - NotBlank:
+                message: 'Titre non valide'
+        description:
+            - NotBlank:
+                message: 'Description non valide'
+        price:
+            - Type: numeric
+        category:
+            - Valid: ~
+        seo:
+            - Valid: ~
+
+ShopBundle\Entity\Product:
+    properties:
+        title:
+            - NotBlank:
+                message: "Le titre n'est pas valide"
+        description:
+            - NotBlank: ~

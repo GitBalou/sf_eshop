@@ -1,0 +1,30 @@
+{% extends "ShopBundle::base.html.twig" %}
+
+{% block title %}
+    {{ parent() }} - Product
+{% endblock %}
+
+{% block content %}
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12">
+                <div class="page-header">
+                    <h1>{{ product.title }}</h1>
+                </div>
+
+                <div>
+                    <p>{{ product.description }}</p>
+                    <span>{{ product.price }} euros</span>
+                    <span>stock : {{ product.stock }}</span>
+                    <span>Date de sortie {{ product.releasedAt | date }}</span>
+                </div>
+
+                {% if product.stock > 0 %}
+                <div>
+                    {{ form(formView) }}
+                </div>
+                {%  endif %}
+            </div>
+        </div>
+    </div>
+{% endblock content %}

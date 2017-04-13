@@ -2,3 +2,15 @@ shop_admin_dashboard:
     path: /
     defaults:
         _controller: ShopBundle:Admin/Dashboard:index
+
+shop_shop_admin_product:
+    resource: "@ShopBundle/Resources/config/routing/product.yml"
+    prefix:   /product
+
+shop_shop_admin_category:
+    resource: "@ShopBundle/Resources/config/routing/category.yml"
+    prefix:   /category
+
+shop_shop_admin_feature:
+    resource: "@ShopBundle/Resources/config/routing/feature.yml"
+    prefix:   /shop/admin/feature

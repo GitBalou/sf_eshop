@@ -19,6 +19,18 @@
                     <span>Date de sortie {{ product.releasedAt | date }}</span>
                 </div>
 
+                <div>
+                    <p>{{ product.seo.title }}</p>
+                    <p>{{ product.seo.description }}</p>
+                </div>
+
+                <div>
+                    {% for image in product.images %}
+                        <img src="{{ image | image_path }}" alt="{{ image.alt }}" title="{{ image.alt}}" />
+                    {% endfor %}
+                </div>
+
+
                 {% if product.stock > 0 %}
                 <div>
                     {{ form(formView) }}
